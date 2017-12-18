@@ -1,0 +1,112 @@
+syntax = "proto3";
+package com.higgs.bi.protobuf.grpc;
+option java_multiple_files = true;
+message PageActionEventRequest{
+    message Query {
+    //平台
+    string platform = 1;
+    //类型
+    string type = 2;
+    //事件KEY
+    string action = 3;
+    //事件触发所在的模块名
+    string module = 4;
+    //规则化url
+    string path = 5;
+    //事件发生开始时间
+    Timestamp start = 6;
+    //事件发生结束时间
+    Timestamp end = 7;
+    //渠道，如：c,cw,hr
+    string channel = 8;
+}
+    //查询参数
+    repeated Query query = 1;
+    //页码
+    int32 page = 2;
+    //页大小
+    int32 size = 3;
+}
+
+message Pagination {
+    int32 page = 1;
+    int32 size = 2;
+    int64 total = 3;
+    int64 totalPages = 4;
+}
+
+// common
+message Meta {
+    int32 code = 1 ;
+    string msg = 2 ;
+    Pagination pagination = 3;
+}
+
+message MetaRequest{
+    string body = 1;
+}
+
+message MetaResponse{
+    string body = 1;
+    Meta meta = 2;
+}
+
+// timeStamp
+message Timestamp {
+
+    // Represents seconds of UTC time since Unix epoch
+    // 1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to
+    // 9999-12-31T23:59:59Z inclusive.
+    int64 seconds = 1;
+
+    // Non-negative fractions of a second at nanosecond resolution. Negative
+    // second values with fractions must still have non-negative nanos values
+    // that count forward in time. Must be from 0 to 999,999,999
+    // inclusive.
+    int32 nanos = 2;
+}
+
+message PageActionEventResponse{
+    //结果list
+    repeated ActionEvent actionEvents = 1;
+    //分页信息
+    Meta meta = 2;
+}
+message ActionEvent{
+    //平台
+    string platform = 1;
+    //类型
+    string type = 2;
+    //渠道
+    string channel = 3;
+    //事件KEY
+    string action = 4;
+    //事件的中文描述
+    string action_name = 5;
+    //完整的url
+    string url = 6;
+    //规则化url
+    string path = 7;
+    //页面的中文名
+    string title = 8;
+    //事件触发所在的模块名
+    string module = 9;
+    //对应module的中文描述
+    string module_name = 10;
+    //附属信息
+    map<string, string> content = 11;
+    //IP
+    string ip = 12;
+    //事件发生时间
+    Timestamp time_at = 13;
+    //花费时长
+    int32 spent = 14;
+}
+service ActionEventService {
+    //根据查询参数获取分页的埋点数据
+    rpc page (PageActionEventRequest) returns (PageActionEventResponse) {
+
+    };
+}
+
+
