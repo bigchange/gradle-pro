@@ -1,0 +1,114 @@
+{
+  "data.dir": "click_data/lieluobo",
+  "grpc.host":"172.16.52.84",
+  "grpc.port":10252,
+  "day.offset": -10,
+  "start.date":"2017-12-01",
+  "end.date":"2017-12-15",
+  "type.get.method": 0,
+  "pageActionEventRequest": {
+    "query": [
+      {
+        "platform": "WEB",
+        "type": "view",
+        "action": "time_c",
+        "module": "Resumes",
+        "channel": "c"
+      },
+      {
+        "platform": "WEB",
+        "type": "click",
+        "action": "click_c_search",
+        "channel": "c"
+      },
+      {
+        "platform": "WEB",
+        "type": "click",
+        "action": "click_c_recommendProjectForResume",
+        "channel": "c"
+      },
+      {
+        "platform": "WEB",
+        "type": "click",
+        "action": "click_c_resume_recommand_noInterest",
+        "channel": "c"
+      },
+      {
+        "platform": "WEB",
+        "type": "click",
+        "action": "click_c_resume_recommand_changepage",
+        "channel": "c"
+      },
+      {
+        "platform": "WEB",
+        "type": "click",
+        "action": "click_c_project_detail",
+        "channel": "c"
+      },
+      {
+        "platform": "WEB",
+        "module": "resume_list_recommend_project",
+        "channel": "c"
+      },
+      {
+        "platform": "WEB",
+        "module": "resume_detail_recommend_project",
+        "channel": "c"
+      },
+      {
+        "platform": "WEB",
+        "module": "project_create_success_recommend",
+        "channel": "c"
+      },
+      {
+        "platform": "WEB",
+        "module": "project_fail_recommend",
+        "channel": "c"
+      },
+      {
+        "platform": "WEB",
+        "type": "click",
+        "action": "click_c_project_preivew",
+        "channel": "c"
+      },
+      {
+        "platform": "WEB",
+        "type": "click",
+        "action": "click_c_project_contact",
+        "channel": "c"
+      },
+      {
+        "platform": "WEB",
+        "type": "click",
+        "action": "click_c_project_accept",
+        "channel": "c"
+      },
+      {
+        "platform": "WEB",
+        "type": "click",
+        "action": "click_c_notinterest_project_batch",
+        "channel": "c"
+      },
+      {
+        "platform": "WEB",
+        "type": "click",
+        "action": "click_c_notinterest_resume_batch",
+        "channel": "c"
+      },
+      {
+        "platform": "WEB",
+        "type": "click",
+        "action": "click_c_notinterest_resume",
+        "channel": "c"
+      },
+      {
+        "platform": "WEB",
+        "type": "click",
+        "action": "click_c_notinterest_project",
+        "channel": "c"
+      }
+    ],
+    "page": 1,
+    "size": 1000
+  }
+}
